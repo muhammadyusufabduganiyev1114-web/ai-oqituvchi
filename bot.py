@@ -77,16 +77,18 @@ def _env_float(name: str, default: float) -> float:
         raise RuntimeError(f"{name} faqat son bo‘lishi kerak.")
 
 
+
 TOKEN = os.getenv("BOT_TOKEN")
-OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
+GROQ_API_KEY = os.getenv("GROQ_API_KEY")
 ADMIN_ID_RAW = os.getenv("ADMIN_ID")
 
 if not TOKEN:
     raise RuntimeError("BOT_TOKEN topilmadi.")
-if not OPENAI_API_KEY:
-    raise RuntimeError("OPENAI_API_KEY topilmadi.")
+if not GROQ_API_KEY:
+    raise RuntimeError("GROQ_API_KEY topilmadi.")
 if not ADMIN_ID_RAW:
     raise RuntimeError("ADMIN_ID topilmadi.")
+
 
 try:
     ADMIN_ID = int(ADMIN_ID_RAW)
