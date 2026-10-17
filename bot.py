@@ -1127,7 +1127,7 @@ def _classify_openai_error(exc: Exception) -> str:
     if "Connection" in name:
         return "🌐 AI xizmatiga ulanib bo‘lmadi. Birozdan keyin qayta urinib ko‘ring."
     if "Authentication" in name or "PermissionDenied" in name:
-    logger.critical("Groq API ruxsat xatosi (GROQ_API_KEY ni tekshiring): %s", name)
+        logger.critical("Groq API ruxsat xatosi (GROQ_API_KEY ni tekshiring): %s", name)
         return "⚠️ AI xizmatida sozlash muammosi bor. Administrator xabardor qilindi."
     if "NotFound" in name or "BadRequest" in name:
         logger.error("OpenAI so‘rovi rad etildi (OPENAI_MODEL=%s ni tekshiring): %s", OPENAI_MODEL, exc)
