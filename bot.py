@@ -175,7 +175,13 @@ def setup_logging() -> None:
         logging.getLogger(noisy).setLevel(logging.WARNING)
 
 
-aclient = AsyncOpenAI(api_key=OPENAI_API_KEY, timeout=OPENAI_TIMEOUT, max_retries=2)
+
+aclient = AsyncOpenAI(
+    api_key=GROQ_API_KEY,
+    base_url="https://api.groq.com/openai/v1",
+    timeout=OPENAI_TIMEOUT,
+    max_retries=2
+)
 
 # ============================================================
 # 2. MA’LUMOTLAR BAZASI + XAVFSIZ MIGRATSIYA
