@@ -7,7 +7,7 @@ shaxsiy reja va ustozlar bo‘limi.
 
 Muhit o‘zgaruvchilari (kodga HECH QACHON yozilmaydi):
     BOT_TOKEN        - Telegram bot tokeni              (majburiy)
-    OPENAI_API_KEY   - OpenAI API kaliti                (majburiy)
+    GROQ_API_KEY - Groq API kaliti (majburiy)
     ADMIN_ID         - Admin Telegram ID (raqam)        (majburiy)
     OPENAI_MODEL     - AI modeli (standart: gpt-5.6-luna, avvalgi kodingizdagi nom)
 Ixtiyoriy:
@@ -1127,7 +1127,7 @@ def _classify_openai_error(exc: Exception) -> str:
     if "Connection" in name:
         return "🌐 AI xizmatiga ulanib bo‘lmadi. Birozdan keyin qayta urinib ko‘ring."
     if "Authentication" in name or "PermissionDenied" in name:
-        logger.critical("OpenAI ruxsat xatosi (OPENAI_API_KEY ni tekshiring): %s", name)
+    logger.critical("Groq API ruxsat xatosi (GROQ_API_KEY ni tekshiring): %s", name)
         return "⚠️ AI xizmatida sozlash muammosi bor. Administrator xabardor qilindi."
     if "NotFound" in name or "BadRequest" in name:
         logger.error("OpenAI so‘rovi rad etildi (OPENAI_MODEL=%s ni tekshiring): %s", OPENAI_MODEL, exc)
